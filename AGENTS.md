@@ -15,7 +15,11 @@ precedence. Persist accepted changes in the corresponding executable files.
 - Sources: Simon Willison LLMs, Google Research, BAIR, TechCrunch AI,
   OpenAI News and Hugging Face Blog (not Daily Papers), Anthropic Research,
   Anthropic Alignment Science and News, Google DeepMind Blog, Ai2 Blog and
-  METR Research. Do not monitor arXiv as a source.
+  METR Research; plus OpenAI Research and Alignment, Anthropic Engineering,
+  Google AI, NVIDIA Research and Technical Blog, Qwen, xAI, vLLM Blog, Ahead
+  of AI, Latent Space, MIT Technology Review AI, and GitHub Trending.
+  GitHub Trending is for discovery; verify a project against its primary source.
+  Do not monitor arXiv as a source.
 - Discover the 50 top-ranked Hacker News stories on each cycle using its official
   API. Classify unseen IDs for AI relevance, ingest relevant links or self-posts,
   and persist seen IDs; use the existing event deduplication before publishing.

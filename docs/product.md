@@ -14,6 +14,10 @@
 Simon Willison (LLMs)، Google Research، Berkeley AI Research، TechCrunch AI،
 OpenAI News و بلاگ Hugging Face؛ همچنین Anthropic Research، بلاگ Alignment Science
 و بخش خبر Anthropic، بلاگ Google DeepMind، بلاگ Ai2 و پژوهش‌های METR.
+همچنین OpenAI Research و Alignment، Anthropic Engineering، Google AI،
+پژوهش و بلاگ فنی NVIDIA، بلاگ Qwen، اخبار xAI، بلاگ vLLM، Ahead of AI،
+Latent Space، بخش AI مجلهٔ MIT Technology Review و GitHub Trending.
+مورد آخر برای کشف پروژه است و محبوبیت به‌تنهایی دلیل انتشار نیست.
 فیدها در `sources.json` و صفحات وب در `web-sources.json` ثبت شده‌اند.
 Hugging Face Daily Papers و رصد مستقیم arXiv فعلاً در دامنه نیستند؛ مقاله‌ای
 که یک منبع منتخب به آن ارجاع داده می‌تواند برای بررسی شواهد خوانده شود.

@@ -22,5 +22,57 @@
   {
     "id": "metr_research",
     "url": "https://metr.org/research/"
+  },
+  {
+    "id": "openai_research",
+    "url": "https://openai.com/research/"
+  },
+  {
+    "id": "openai_alignment",
+    "url": "https://alignment.openai.com/"
+  },
+  {
+    "id": "anthropic_engineering",
+    "url": "https://www.anthropic.com/engineering"
+  },
+  {
+    "id": "google_ai",
+    "url": "https://blog.google/technology/ai/"
+  },
+  {
+    "id": "nvidia_research",
+    "url": "https://research.nvidia.com/publications"
+  },
+  {
+    "id": "nvidia_technical",
+    "url": "https://developer.nvidia.com/blog/category/generative-ai/"
+  },
+  {
+    "id": "qwen_blog",
+    "url": "https://qwenlm.github.io/blog/"
+  },
+  {
+    "id": "xai_news",
+    "url": "https://x.ai/news"
+  },
+  {
+    "id": "vllm_blog",
+    "url": "https://blog.vllm.ai/"
+  },
+  {
+    "id": "ahead_of_ai",
+    "url": "https://magazine.sebastianraschka.com/"
+  },
+  {
+    "id": "latent_space",
+    "url": "https://www.latent.space/"
+  },
+  {
+    "id": "mit_technology_review_ai",
+    "url": "https://www.technologyreview.com/topic/artificial-intelligence/"
+  },
+  {
+    "id": "github_trending",
+    "url": "https://github.com/trending"
   }
 ]
