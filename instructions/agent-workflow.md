@@ -23,6 +23,10 @@ For NVIDIA Research inspect relevant publications, not unrelated research areas;
 for independent newsletters and MIT Technology Review seek primary evidence and
 attribute analysis. Some listings may be paywalled or block access; never claim
 complete verification when the original evidence is inaccessible.
+For Reuters Technology, focus on AI-related economics, geopolitics, regulation,
+chips and industry as well as major technical developments. If Reuters blocks
+direct access, use domain-scoped search for discovery and verify claims against
+accessible primary evidence or other reliable reporting; otherwise hold the item.
 If a listing cannot be fetched, retry and use live web search scoped to its
 domain as a fallback; record failures rather than claiming it was checked.
 Do not treat arXiv or Hugging Face Daily Papers as discovery sources; an arXiv

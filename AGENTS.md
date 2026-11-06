@@ -17,7 +17,8 @@ precedence. Persist accepted changes in the corresponding executable files.
   Anthropic Alignment Science and News, Google DeepMind Blog, Ai2 Blog and
   METR Research; plus OpenAI Research and Alignment, Anthropic Engineering,
   Google AI, NVIDIA Research and Technical Blog, Qwen, xAI, vLLM Blog, Ahead
-  of AI, Latent Space, MIT Technology Review AI, and GitHub Trending.
+  of AI, Latent Space, MIT Technology Review AI, Reuters Technology, and
+  GitHub Trending.
   GitHub Trending is for discovery; verify a project against its primary source.
   Do not monitor arXiv as a source.
 - Discover the 50 top-ranked Hacker News stories on each cycle using its official

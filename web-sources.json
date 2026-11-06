@@ -74,5 +74,9 @@
   {
     "id": "github_trending",
     "url": "https://github.com/trending"
+  },
+  {
+    "id": "reuters_technology",
+    "url": "https://www.reuters.com/technology/"
   }
 ]
