@@ -1,8 +1,8 @@
 [Unit]
-Description=Run AI news every ten minutes
+Description=Run AI news every fifteen minutes
 
 [Timer]
-OnCalendar=*-*-* *:00/10:00
+OnCalendar=*-*-* *:00/15:00
 AccuracySec=1s
 Persistent=true
 Unit=ai-news.service

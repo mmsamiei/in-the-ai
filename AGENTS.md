@@ -9,7 +9,8 @@ precedence. Persist accepted changes in the corresponding executable files.
 
 - Personal AI news collector with fully automatic public Persian output in
   @in_the_ai via @ai_khabar_bot. Broad coverage of relatively important events.
-- Sources: Simon Willison LLMs, Google Research, BAIR, TechCrunch AI.
+- Sources: Simon Willison LLMs, Google Research, BAIR, TechCrunch AI,
+  OpenAI News and Hugging Face Blog (not Daily Papers).
 - Fluent conversational Persian with as many paragraphs as needed for clarity.
   Readability and narrative flow take priority over imitation.
   Natural literary devices/humor, without a mandatory narrative template or
@@ -18,7 +19,7 @@ precedence. Persist accepted changes in the corresponding executable files.
   English name, number, emoji or punctuation. Example: «شرکت Airbnb».
 - Keep sources, times and uncertainty. Updates reply to the original event;
   duplicates do not create new posts. Validate before publication.
-- The user approved systemd scheduling every ten minutes. Use ai-news.timer
+- The user approved systemd scheduling every fifteen minutes. Use ai-news.timer
   and ai-news.service (templates in deploy/). Do not add a second scheduler.
 - Inference is pinned to gpt-6.1-terra with Light/low reasoning in inference.json.
 

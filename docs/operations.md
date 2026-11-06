@@ -36,8 +36,8 @@ it without an explicit request. Output files and demo state are not Git files.
 
 ## Scheduling
 
-The user approved `ai-news.timer` on this server, with calendar runs every ten
-minutes (:00, :10, :20, :30, :40, :50). The oneshot service runs cycle.py with
+The user approved `ai-news.timer` on this server, with calendar runs every fifteen
+minutes (:00, :15, :30, :45). The oneshot service runs cycle.py with
 publication enabled. If still active, systemd does not start a second copy;
 application locks provide an additional overlap guard. Persistent=true requests
 one catch-up activation after downtime, rather than replaying every missed tick.

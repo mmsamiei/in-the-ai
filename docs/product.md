@@ -11,9 +11,10 @@
 
 ## منابع
 
-Simon Willison (LLMs)، Google Research، Berkeley AI Research و TechCrunch AI.
+Simon Willison (LLMs)، Google Research، Berkeley AI Research، TechCrunch AI،
+OpenAI News و بلاگ Hugging Face.
 آدرس‌ها در `sources.json` هستند. Hugging Face Daily Papers فعلاً در دامنه نیست.
-این چهار منبع پوشش کامل همهٔ اتفاقات AI را تضمین نمی‌کنند.
+این شش منبع پوشش کامل همهٔ اتفاقات AI را تضمین نمی‌کنند.
 
 ## جریان خبر
 
@@ -45,7 +46,7 @@ Simon Willison (LLMs)، Google Research، Berkeley AI Research و TechCrunch AI.
 - دامنهٔ شروع به چهار منبع گسترش یافت.
 - محدودیت تعداد پاراگراف برداشته شد؛ فهم و روانی اولویت دارند.
 - روانی متن بر شباهت دقیق به نویسندهٔ نمونه ترجیح داده شد.
-- با تأیید کاربر، زمان‌بندی به تایمر systemd هر ده دقیقه تغییر کرد.
+- با تأیید کاربر، زمان‌بندی تایمر systemd هر پانزده دقیقه است.
   وظیفهٔ بومی یا cron موازی فعال نشود.
 - اجرا با Codex و ورود حساب همین سرور، مدل ثابت `gpt-6.1-terra` و
   ریزنینگ Light (مقدار CLI: `low`) است؛ OpenRouter متصل نشده.
