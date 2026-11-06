@@ -1,0 +1,13 @@
+*.sqlite3
+*.sqlite3-*
+__pycache__/
+.env
+.env.*
+*.lock
+demo-output/
+output/
+.secrets/
+telegram.json
+backups/
+*.log
+*.pyc

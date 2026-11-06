@@ -1,0 +1,14 @@
+Maintained documentation: README.md and docs/.
+Agents should start with AGENTS.md.
+Local settings: .env (template: example.env).
+Backend: inference.json. Selection/check prompts: prompts/.
+Writing: writing-prompt.txt.
+
+Commands from the repository root:
+  python3 -m unittest -v
+  python3 cycle.py --limit 5
+  python3 publish.py --check
+  python3 cycle.py --publish --limit 5
+
+The final command publishes. scheduled-task-prompt.txt is prepared text only;
+no scheduler has been registered through this project.

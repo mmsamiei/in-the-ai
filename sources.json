@@ -1,0 +1,6 @@
+[
+  {"id":"simon","url":"https://simonwillison.net/tags/llms.atom"},
+  {"id":"google","url":"https://research.google/blog/rss/"},
+  {"id":"bair","url":"https://bair.berkeley.edu/blog/feed.xml"},
+  {"id":"techcrunch","url":"https://techcrunch.com/category/artificial-intelligence/feed/"}
+]
