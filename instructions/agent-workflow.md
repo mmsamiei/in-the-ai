@@ -77,7 +77,8 @@ Python urllib and the write-ahead state protocol in database-and-telegram.md.
 For updates reply to the first confirmed message ID for that event. Preserve
 the channel binding and all earlier data. Never retry an ambiguous send without
 proof that it did not arrive; if verification is unavailable, leave it pending
-manual reconciliation. Include at most one source footer in every message.
+manual reconciliation. Include at most one source footer in every message. Enable the source link
+preview using link_preview_options as specified in database-and-telegram.md.
 
 Before finishing, write a concise report with sources checked, number discovered,
 decisions, sent message IDs, queued items and failures. No fabricated successes.

@@ -43,6 +43,11 @@ Publication protocol, preserving compatibility with the stable implementation:
    with a Persian prefix. For an update find the original
    confirmed message ID and use reply_parameters with allow_sending_without_reply
    false. If original was not confirmed, leave the update queued.
+   Enable the source link preview in every sendMessage call: use
+   `link_preview_options={'is_disabled': False, 'url': source_url}` with the
+   same source URL included once in the message. Do not set
+   `disable_web_page_preview` to true. Telegram or the source site can still
+   prevent a preview from appearing.
 3. Commit deliveries state='sending' and an incremented attempt BEFORE network
    sendMessage. This is a write-ahead record, not proof of delivery.
 4. On a successful response, verify response chat ID and message ID, then in one

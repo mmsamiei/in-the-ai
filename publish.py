@@ -97,7 +97,7 @@ def payload_for(db, draft, chat_id, preview=False):
     text = body + '\n\nمنبع: ' + url
     if len(text.encode('utf-16-le')) // 2 > 4096:
         raise ValueError(f'Draft {draft_id} exceeds Telegram message length')
-    payload = dict(chat_id=chat_id, text=text, link_preview_options={'is_disabled': True})
+    payload = dict(chat_id=chat_id, text=text, link_preview_options={'is_disabled': False, 'url': url})
     if parent_id is not None:
         parent = db.execute('SELECT telegram_message_id FROM drafts WHERE id=?', (parent_id,)).fetchone()
         if not parent or parent[0] is None:

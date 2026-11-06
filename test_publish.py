@@ -29,6 +29,12 @@ class DeliveryTests(EventFixture, unittest.TestCase):
         self.assertEqual(api.call.call_args.args[1]['reply_parameters'],
                          {'message_id': 90, 'allow_sending_without_reply': False})
 
+    def test_source_link_preview_is_enabled(self):
+        draft = self.draft()
+        payload = payload_for(self.db, draft, -100123)
+        self.assertEqual(payload['link_preview_options'],
+                         {'is_disabled': False, 'url': draft[3]})
+
     def test_unknown_outcome_is_not_retried(self):
         draft = self.draft()
         api = Mock()
