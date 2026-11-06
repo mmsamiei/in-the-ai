@@ -1,6 +1,10 @@
 """Formatting rules shared by generation and Telegram delivery."""
 import re
 
+PERSIAN_LETTER = re.compile(r'[\u0621-\u063a\u0641-\u064a\u0671-\u06d3\u06fa-\u06fc]')
+LATIN_LETTER = re.compile(r'[A-Za-z]')
+URL = re.compile(r'https?://\S+')
+
 PERSIAN_INITIAL = re.compile(r'^[آاأإبپتثجچحخدذرزژسشصضطظعغفقکكگلمنوهیيئؤةۀ]')
 
 
@@ -23,3 +27,9 @@ def validate_post(body):
     for index, paragraph in enumerate(paragraphs, 1):
         if not PERSIAN_INITIAL.match(paragraph.lstrip()):
             raise ValueError(f'Paragraph {index} must start with a Persian word for RTL display')
+        # Ignore links, but reject English prose hidden behind a Persian prefix.
+        prose = URL.sub('', paragraph)
+        persian = len(PERSIAN_LETTER.findall(prose))
+        latin = len(LATIN_LETTER.findall(prose))
+        if latin and persian < latin:
+            raise ValueError(f'Paragraph {index} must be predominantly Persian')

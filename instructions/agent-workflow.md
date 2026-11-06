@@ -50,7 +50,10 @@ Only count confirmed sends; if an outcome is uncertain, stop sending and keep
 the ambiguous send recorded. Avoid changing HN/source metadata into new versions
 solely because score or rank changed.
 
-Write understandable, fluent conversational Persian throughout (for example
+Write each full post in Persian; never copy English feed text into the body
+behind a Persian prefix. Review and rewrite old queued drafts if needed. Run
+`text_rules.validate_post` on the exact body before every publication; if it
+fails, rewrite or hold it. Write understandable, fluent conversational Persian throughout (for example
 «میره», «رو», «باشه»), with natural transitions and a suitable number of
 paragraphs. Develop the story with source-supported details and mechanisms,
 connecting ideas so a curious non-specialist can follow the reasoning. Explain

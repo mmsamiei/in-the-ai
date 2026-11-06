@@ -34,7 +34,13 @@ Publication protocol, preserving compatibility with the stable implementation:
    previously unbound DB in a transaction. Keep token inside the Python process.
 2. Use draft.id as idempotence key locally. Check no prior sent/sending/uncertain/
    failed delivery exists. Validate Persian paragraph starts and size; body+one
-   source footer must fit Telegram limits. For an update find the original
+   source footer must fit Telegram limits. Before EVERY send, call
+   `from text_rules import validate_post; validate_post(body)` on the exact
+   complete body to be sent, including any existing queued draft; do not bypass
+   or replace this check. If it fails, rewrite in Persian and validate again,
+   or leave the item unsent. A passing check does not replace reading the body:
+   the entire explanation must be fluent Persian, not copied English prose
+   with a Persian prefix. For an update find the original
    confirmed message ID and use reply_parameters with allow_sending_without_reply
    false. If original was not confirmed, leave the update queued.
 3. Commit deliveries state='sending' and an incremented attempt BEFORE network
