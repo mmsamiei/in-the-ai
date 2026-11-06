@@ -50,9 +50,12 @@ Only count confirmed sends; if an outcome is uncertain, stop sending and keep
 the ambiguous send recorded. Avoid changing HN/source metadata into new versions
 solely because score or rank changed.
 
-Write understandable, fluent conversational Persian, with natural transitions
-and a suitable number of paragraphs; humor or literary devices only when they
-fit. The first character of EVERY paragraph must be a Persian letter, not an
+Write understandable, fluent conversational Persian throughout (for example
+«میره», «رو», «باشه»), with natural transitions and a suitable number of
+paragraphs. When useful, explain with a clear example, labeling hypothetical
+examples and never presenting them as reported facts. Step back and explain
+necessary concepts and context simply before relying on them, naturally within
+the narrative. Use humor or literary devices only when they fit. The first character of EVERY paragraph must be a Persian letter, not an
 English name, digit, emoji or punctuation. Source URL occurs exactly once, after
 the body. Read writing-prompt.txt for the live editorial instructions. Verify
 each factual claim against sources before sending, explicitly distinguishing
