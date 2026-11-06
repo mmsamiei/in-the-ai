@@ -25,7 +25,12 @@ record every checked HN ID in hn_seen and consider its URL or self-post text;
 do not reprocess a seen ID merely because rank or score changed. Fetch failure
 must not mark an item seen. Start with existing database and pending items.
 The 15-minute schedule is not a strict article-age filter; examine newly found
-older items for timeliness and importance. Skip existing baseline RSS entries.
+older items for timeliness and importance. A baseline record only means the item
+was observed during an initial feed import; it does not mean it was reviewed or
+published. Evaluate timely baseline entries without a prior editorial decision,
+especially on a fresh database. Consider publication history and decisions when
+identifying duplicates; a stored article URL alone is not evidence of a post.
+Record an explicit decision and reason for each candidate you evaluate.
 
 ## Decide, queue and write
 
