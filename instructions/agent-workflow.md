@@ -52,7 +52,12 @@ solely because score or rank changed.
 
 Write understandable, fluent conversational Persian throughout (for example
 «میره», «رو», «باشه»), with natural transitions and a suitable number of
-paragraphs. Use humor or literary devices only when they fit. The first character of EVERY paragraph must be a Persian letter, not an
+paragraphs. Develop the story with source-supported details and mechanisms,
+connecting ideas so a curious non-specialist can follow the reasoning. Explain
+necessary concepts where they matter; do not mandate examples or basic primers.
+Choose openings and structure to fit each story; avoid formulaic beginnings,
+especially repeated «فرض کنید». Distinguish reported facts, hypothetical
+scenarios and analysis. Use humor or literary devices only when they fit. The first character of EVERY paragraph must be a Persian letter, not an
 English name, digit, emoji or punctuation. Source URL occurs exactly once, after
 the body. Read writing-prompt.txt for the live editorial instructions. Verify
 each factual claim against sources before sending, explicitly distinguishing
