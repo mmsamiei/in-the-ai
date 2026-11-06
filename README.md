@@ -1,8 +1,8 @@
 # خبرهای هوش مصنوعی
 
-ابزار شخصی رصد اخبار AI با خروجی عمومی تلگرام. دریافت مطالب، تشخیص رویداد و
-اطلاعات تازه، نگارش، بررسی صحت و انتشار از هم جدا هستند. مدل فعلاً با Codex
-اجرا می‌شود؛ برای اتصال ایجنت دیگر هم رابط مشترک وجود دارد.
+ابزار شخصی رصد اخبار AI با خروجی عمومی تلگرام. در هر نوبت یک اجرای Codex
+منابع را بررسی، خبرها را انتخاب، با حافظهٔ SQLite مقایسه و در تلگرام منتشر
+می‌کند. راهنمای این اجرا در `instructions/` است.
 
 هر چرخه علاوه بر فیدها، ۵۰ پست برتر Hacker News را با API رسمی بررسی و موارد
 مرتبط با AI را وارد جریان خبر می‌کند. شناسهٔ پست‌های بررسی‌شده ذخیره می‌شود.
@@ -28,20 +28,18 @@ python3 publish.py --check
 می‌شود؛ کد shell یا جایگذاری متغیر اجرا نمی‌شود.
 
 ```sh
-# دریافت و ساخت پیش‌نویس محلی
-python3 cycle.py --limit 5
-# پیش‌نمایش صف، بدون تماس با تلگرام
-python3 publish.py
-# چرخهٔ کامل، همراه انتشار در کانال تنظیم‌شده
-python3 cycle.py --publish --limit 5
+# فقط روی دیتابیس آزمایشی و در محیط بدون توکن تلگرام
+python3 agent_cycle.py --dry-run
+# چرخهٔ کامل روی تنظیمات محلی؛ انتشار عمومی دارد
+python3 agent_cycle.py
 ```
 
 اولین دریافت موفق هر منبع فقط سابقه می‌سازد؛ خبرهای قدیمی وارد صف نمی‌شوند.
-پیش‌نویس‌ها در `output/` هستند. این فرمان‌ها زمان‌بندی فعال نمی‌کنند.
+گزارش اجرای Codex در `output/` است. این فرمان‌ها زمان‌بندی فعال نمی‌کنند.
 زمان‌بندی این سرور با `ai-news.timer` هر پانزده دقیقه تنظیم می‌شود؛ فایل‌های
 سرویس در `deploy/` هستند. وضعیت واقعی با `systemctl status ai-news.timer`
 قابل بررسی است. متن وظیفهٔ بومی فقط برای مهاجرت احتمالی نگه داشته شده.
-مدل در `inference.json` روی `gpt-6-luna` با ریزنینگ `low` (Light) ثابت است.
+مدل در `agent_cycle.py` روی `gpt-6-luna` با ریزنینگ `low` (Light) ثابت است.
 
 ## راهنمای ادامهٔ کار
 
@@ -51,10 +49,9 @@ python3 cycle.py --publish --limit 5
 | محصول و تصمیم‌ها | [docs/product.md](docs/product.md) |
 | اجرا، انتقال و بکاپ | [docs/operations.md](docs/operations.md) |
 | معماری و تعویض ایجنت | [docs/architecture.md](docs/architecture.md) |
-| انتخاب خبر | [prompts/selection.txt](prompts/selection.txt) |
+| چرخهٔ خودگردان | [instructions/agent-workflow.md](instructions/agent-workflow.md) |
 | نگارش | [writing-prompt.txt](writing-prompt.txt) |
-| بررسی صحت | [prompts/verification.txt](prompts/verification.txt) |
-| backend | [inference.json](inference.json) |
+| دیتابیس و تلگرام | [instructions/database-and-telegram.md](instructions/database-and-telegram.md) |
 
 کد، دستورها، مستندات، تست‌ها و تنظیمات غیرمحرمانه در گیت نگه داشته می‌شوند.
 توکن، `.env`، دیتابیس، خروجی‌ها و بکاپ‌ها در گیت نیستند. انتقال سرویس علاوه

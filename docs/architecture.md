@@ -1,8 +1,16 @@
 # Architecture and inference portability
 
-The application owns persistence, validation, event links and Telegram delivery.
-The model owns selection, event matching, drafting and a separate factual check.
-Changing providers must not bypass application checks.
+The scheduled runtime launches one self-directed Codex agent. The agent uses
+shell, network, direct SQLite and Telegram API access, following repository
+instructions. The former fixed pipeline is retained for rollback only.
+
+`agent_cycle.py` owns only the cross-version lock, Codex launch, timeout and
+redacted run report. Agent rules are in instructions/agent-workflow.md and
+instructions/database-and-telegram.md. The stable-v1 tag is the rollback base.
+Existing database schemas are deliberately retained for backwards compatibility.
+
+The sections below describe legacy modules retained as rollback reference,
+not the active autonomous runtime.
 
 ## Modules
 

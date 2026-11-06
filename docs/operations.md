@@ -1,5 +1,29 @@
 # Operations and handoff
 
+## Autonomous runtime and rollback
+
+The autonomous deployment uses `agent_cycle.py` and the systemd unit template
+`deploy/ai-news-agent.service`. The existing `ai-news.timer` remains the only
+schedule. The original `cycle.py` and `deploy/ai-news.service` remain available
+for rollback. Both use `cycle.lock`, preventing concurrent old/new cycles in the
+same checkout. Agent runs use gpt-6-luna, low reasoning, network-enabled
+workspace-write and live web search. Reports are redacted and written to output/.
+
+Dry-run safety requires a copied SQLite database in an isolated environment with
+no production Telegram token and no production filesystem mounts. `--dry-run`
+is an instruction to the agent, not a network firewall.
+
+Rollback: stop ai-news.timer and wait for an active ai-news.service to finish.
+Inspect deliveries for sending/uncertain before switching. Back up the current
+database using SQLite backup API and preserve it; it contains any posts made by
+the agent. Switch the checkout to stable-v1, restore deploy/ai-news.service to
+/etc/systemd/system/ai-news.service, daemon-reload and re-enable the timer. Do
+not replace the current database with the pre-migration backup unless newly
+published message IDs and delivery history have first been reconciled. If the
+current DB does not work with stable-v1, keep the timer stopped until reconciled.
+
+The legacy instructions below remain for operating and verifying rollback.
+
 ## Configuration
 
 For a new install, copy example.env to .env, fill it locally and chmod 600 .env.

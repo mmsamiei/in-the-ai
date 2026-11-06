@@ -1,25 +1,12 @@
 MIGRATION REFERENCE ONLY: the active deployment uses systemd ai-news.timer.
-Do not enable a parallel native schedule. Stop/disable the old scheduler first
-when migrating to this task. Model and effort come from inference.json:
-gpt-6-luna, reasoning_effort=low (Light).
+Do not enable a parallel native schedule. If migrating, disable the system timer first.
 
-From the configured repository working directory, run one AI news cycle:
-python3 cycle.py --publish --limit 5
+From the configured repository working directory run:
+python3 agent_cycle.py
 
-Inspect the exit status and report source or processing failures. If the cycle
-reports another run is active, leave that run alone. Do not modify the code or
-install services. Publishing to the configured @in_the_ai channel is authorized
-through this command. Never send demonstration drafts or arbitrary test posts.
-Do not read or display credential files. Drafts are saved locally in
-output/drafts.txt. The SQLite database at AI_NEWS_DATABASE_PATH is the durable
-memory; do not rely on previous chat context for deduplication. If no new items
-were processed and there were no errors, keep the run report brief.
+This launches one self-directed Codex cycle with gpt-6-luna and low reasoning.
+Codex reads AGENTS.md and instructions/agent-workflow.md, uses SQLite and
+Telegram directly, and may publish to the configured channel. Check its exit
+status and the redacted report under output/. Do not run a parallel cycle.
 
-Permanent RTL requirement: each news paragraph must start with a Persian word,
-not an English name, number, emoji or punctuation. This is recorded in
-writing-prompt.txt and enforced by text_rules.py before drafting and sending.
-Use AGENTS.md and docs/product.md for project requirements. Writing instructions are loaded from
-writing-prompt.txt on every inference call; chat history is not passed to it.
-
-Intended cadence: every 15 minutes. This file is only the task prompt; it does
-not register or activate a schedule.
+Cadence: every 15 minutes. This file is task text, not an active schedule.

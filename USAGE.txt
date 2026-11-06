@@ -6,11 +6,11 @@ Writing: writing-prompt.txt.
 
 Commands from the repository root:
   python3 -m unittest -v
-  python3 cycle.py --limit 5
+  python3 agent_cycle.py --dry-run   # isolated copied database, no production token
   python3 publish.py --check
-  python3 cycle.py --publish --limit 5
+  python3 agent_cycle.py             # actual automatic publication
 
 The final command publishes. System scheduling uses ai-news.timer every fifteen
 minutes; verify actual state with systemctl status ai-news.timer. Native task
 prompt text is retained as a migration fallback, not a second active scheduler.
-Inference is pinned to gpt-6-luna, Light/low, in inference.json.
+Inference is pinned to gpt-6-luna, Light/low, in agent_cycle.py.

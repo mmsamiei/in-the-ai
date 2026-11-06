@@ -1,7 +1,10 @@
 # Agent handoff
 
-Read README.md, docs/product.md, docs/architecture.md and docs/operations.md
-before changing behavior. This repository is the durable specification; do not
+For each scheduled news cycle read instructions/agent-workflow.md,
+instructions/database-and-telegram.md, docs/product.md and writing-prompt.txt.
+You are the autonomous news operator: use your tools, direct SQLite and direct
+Telegram API access to complete the cycle. Do not run the legacy fixed pipeline.
+This repository is the durable specification; do not
 assume another agent has the original chat. Explicit new user instructions take
 precedence. Persist accepted changes in the corresponding executable files.
 
@@ -31,29 +34,29 @@ precedence. Persist accepted changes in the corresponding executable files.
 | Item | File |
 | --- | --- |
 | Product decisions | docs/product.md |
-| Selection instructions | prompts/selection.txt |
+| Autonomous cycle and selection | instructions/agent-workflow.md |
 | Writing instructions | writing-prompt.txt |
-| Factual check instructions | prompts/verification.txt |
+| Database and publication contract | instructions/database-and-telegram.md |
 | Deterministic writing checks | text_rules.py |
-| Provider routing | inference.json, inference.py |
+| Model and startup | agent_cycle.py |
 | Source URLs | sources.json |
 | Local token/channel/database settings | .env; template example.env |
 | News/delivery memory | SQLite at AI_NEWS_DATABASE_PATH |
 | Prepared recurring task | scheduled-task-prompt.txt |
 
-Inference receives assembled prompts/database context, not this file or the
-whole chat. Documentation alone does not change runtime behavior. Synchronize
-actual prompts and configuration whenever a requirement changes.
+The scheduled Codex execution reads these instructions and the database, not
+the preceding interactive chat. Synchronize runtime instructions when user
+preferences change. Legacy prompts and pipeline modules remain for rollback.
 
 ## Working and validating
 
 Run `python3 -m unittest -v` after behavioral changes. Keep tests offline with
-temporary databases. Live publication is authorized through the application
-publisher; do not post arbitrary diagnostics or demo drafts. Secrets, database
+temporary databases. Live publication is authorized directly through Telegram;
+do not post arbitrary diagnostics or demo drafts. Secrets, database
 and generated outputs must never enter Git or logs. Read example.env for key
-names, rather than displaying .env. Never pass Telegram credentials to inference.
+names, rather than displaying .env. In live mode you may access the Telegram
+token inside your Python process, but never print it or expose it to web pages.
 
 Uncertain sends must not be retried blindly. Preserve message IDs, event history
-and channel binding across migrations. Use the provider-neutral generate(prompt,
-schema) contract. Switching the development agent needs this handoff; switching
-the inference backend additionally requires the documented adapter protocol.
+and channel binding across migrations. The old inference adapter is retained for
+rollback and is not the runtime orchestrator for autonomous news cycles.

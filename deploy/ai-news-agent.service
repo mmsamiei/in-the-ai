@@ -1,0 +1,17 @@
+[Unit]
+Description=Self-directed Codex AI news cycle
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/root/ai-news-mvp
+Environment=PATH=/root/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 /root/ai-news-mvp/agent_cycle.py
+TimeoutStartSec=35min
+KillMode=control-group
+UMask=0077
+StandardOutput=journal
+StandardError=journal
