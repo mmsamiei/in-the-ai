@@ -21,7 +21,17 @@ class InferenceTests(unittest.TestCase):
             config = self.config(folder, {'backend': 'codex', 'timeout_seconds': 90})
             with patch('inference.codex_generate', return_value={'ok': True}) as backend:
                 self.assertEqual(generate('prompt', {'type': 'object'}, config), {'ok': True})
-                backend.assert_called_once_with('prompt', {'type': 'object'}, timeout=90)
+                backend.assert_called_once_with('prompt', {'type': 'object'}, timeout=90,
+                                                model=None, reasoning_effort=None)
+
+    def test_pinned_terra_and_light_are_forwarded(self):
+        with tempfile.TemporaryDirectory() as folder:
+            config = self.config(folder, {'backend': 'codex', 'model': 'gpt-6.1-terra',
+                                          'reasoning_effort': 'low'})
+            with patch('inference.codex_generate', return_value={'ok': True}) as backend:
+                generate('prompt', {}, config)
+                backend.assert_called_once_with('prompt', {}, timeout=240,
+                                                model='gpt-6.1-terra', reasoning_effort='low')
 
     def test_command_backend_protocol_and_environment(self):
         code = '''import json,os,sys

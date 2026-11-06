@@ -10,5 +10,7 @@ Commands from the repository root:
   python3 publish.py --check
   python3 cycle.py --publish --limit 5
 
-The final command publishes. scheduled-task-prompt.txt is prepared text only;
-no scheduler has been registered through this project.
+The final command publishes. System scheduling uses ai-news.timer every ten
+minutes; verify actual state with systemctl status ai-news.timer. Native task
+prompt text is retained as a migration fallback, not a second active scheduler.
+Inference is pinned to gpt-6.1-terra, Light/low, in inference.json.

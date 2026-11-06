@@ -36,11 +36,39 @@ it without an explicit request. Output files and demo state are not Git files.
 
 ## Scheduling
 
-No scheduler is currently active through this project. Preferred cadence is
-every ten minutes using native scheduling. Use scheduled-task-prompt.txt and
-set its working directory to the actual checkout. Verify the first scheduled
-run independently. A prepared file or installed CLI does not prove scheduling
-exists. Do not install cron/systemd as an implicit substitute. Keep existing locks.
+The user approved `ai-news.timer` on this server, with calendar runs every ten
+minutes (:00, :10, :20, :30, :40, :50). The oneshot service runs cycle.py with
+publication enabled. If still active, systemd does not start a second copy;
+application locks provide an additional overlap guard. Persistent=true requests
+one catch-up activation after downtime, rather than replaying every missed tick.
+
+The server-specific templates are in deploy/. They use the existing root account,
+checkout /root/ai-news-mvp, /usr/bin/python3 and Codex in /root/.local/bin. Adjust
+these paths/account on another host. Secrets are read by the application from
+.env, not loaded as an EnvironmentFile for the entire service process tree.
+The service kills its process group after a 45-minute limit; interrupted sends
+remain sending/uncertain and must be reconciled before retry.
+
+Install/update and inspect:
+
+```sh
+install -m 644 deploy/ai-news.service /etc/systemd/system/ai-news.service
+install -m 644 deploy/ai-news.timer /etc/systemd/system/ai-news.timer
+systemctl daemon-reload
+systemctl enable --now ai-news.timer
+systemctl status ai-news.timer
+systemctl show ai-news.service -p Result -p ExecMainStatus
+journalctl -u ai-news.service -n 50 --no-pager
+```
+
+To trigger a real cycle now, use `systemctl start ai-news.service`. To pause
+future runs use `systemctl stop ai-news.timer`; an already running cycle keeps
+running. `systemctl disable --now ai-news.timer` also prevents boot activation.
+
+Do not create parallel native or cron jobs. scheduled-task-prompt.txt is retained
+only for a future migration; disable the system timer before using another
+scheduler. Inference is pinned to gpt-6.1-terra with reasoning_effort=low in
+inference.json, regardless of the model selected in a desktop chat.
 
 ## Delivery issues
 

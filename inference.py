@@ -18,7 +18,8 @@ def generate(prompt, schema, config_path=None):
         raise ValueError('timeout_seconds must be a positive integer')
     backend = config.get('backend', 'codex')
     if backend == 'codex':
-        return codex_generate(prompt, schema, timeout=timeout)
+        return codex_generate(prompt, schema, timeout=timeout,
+                              model=config.get('model'), reasoning_effort=config.get('reasoning_effort'))
     if backend != 'command':
         raise ValueError('Unknown inference backend')
     command = config.get('command')

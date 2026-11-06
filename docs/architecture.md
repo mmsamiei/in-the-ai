@@ -37,9 +37,11 @@ include that instruction explicitly. Transfer runtime state/credentials separate
 
 ## Switching inference away from Codex
 
-Default inference.json selects `codex` with a 240-second timeout. The runner uses
-the account login and CLI default model, ignoring user config. Model selection
-is not pinned or recorded per historical inference yet.
+Default inference.json selects `codex`, model `gpt-6.1-terra`, reasoning_effort
+`low` (Light in the UI), and a 240-second timeout. The adapter forwards explicit
+--model and model_reasoning_effort options while ignoring user config. Both
+drafting and factual checking use this configuration. Per-inference historical
+model metadata is not recorded yet. The account login is unchanged.
 
 Implement a small adapter and change configuration:
 

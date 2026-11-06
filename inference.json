@@ -1,4 +1,6 @@
 {
   "backend": "codex",
+  "model": "gpt-6.1-terra",
+  "reasoning_effort": "low",
   "timeout_seconds": 240
 }

@@ -17,8 +17,9 @@ precedence. Persist accepted changes in the corresponding executable files.
   English name, number, emoji or punctuation. Example: «شرکت Airbnb».
 - Keep sources, times and uncertainty. Updates reply to the original event;
   duplicates do not create new posts. Validate before publication.
-- Prefer native scheduling. Do not install cron/systemd without a new request.
-  No native schedule has been registered through this project so far.
+- The user approved systemd scheduling every ten minutes. Use ai-news.timer
+  and ai-news.service (templates in deploy/). Do not add a second scheduler.
+- Inference is pinned to gpt-6.1-terra with Light/low reasoning in inference.json.
 
 ## Sources of truth
 
