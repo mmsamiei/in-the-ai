@@ -12,9 +12,11 @@
 ## منابع
 
 Simon Willison (LLMs)، Google Research، Berkeley AI Research، TechCrunch AI،
-OpenAI News و بلاگ Hugging Face.
-آدرس‌ها در `sources.json` هستند. Hugging Face Daily Papers فعلاً در دامنه نیست.
-این شش منبع پوشش کامل همهٔ اتفاقات AI را تضمین نمی‌کنند.
+OpenAI News و بلاگ Hugging Face؛ همچنین Anthropic Research، بلاگ Alignment Science
+و بخش خبر Anthropic، بلاگ Google DeepMind، بلاگ Ai2 و پژوهش‌های METR.
+فیدها در `sources.json` و صفحات وب در `web-sources.json` ثبت شده‌اند.
+Hugging Face Daily Papers و رصد مستقیم arXiv فعلاً در دامنه نیستند؛ مقاله‌ای
+که یک منبع منتخب به آن ارجاع داده می‌تواند برای بررسی شواهد خوانده شود.
 
 علاوه بر این منابع، هر چرخه ۵۰ پست برتر Hacker News با API رسمی بررسی می‌شوند.
 مدل موارد مرتبط یا احتمالاً مرتبط با AI را از عنوان، لینک و متن خود پست انتخاب

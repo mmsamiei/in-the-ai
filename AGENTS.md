@@ -13,7 +13,9 @@ precedence. Persist accepted changes in the corresponding executable files.
 - Personal AI news collector with fully automatic public Persian output in
   @in_the_ai via @ai_khabar_bot. Broad coverage of relatively important events.
 - Sources: Simon Willison LLMs, Google Research, BAIR, TechCrunch AI,
-  OpenAI News and Hugging Face Blog (not Daily Papers).
+  OpenAI News and Hugging Face Blog (not Daily Papers), Anthropic Research,
+  Anthropic Alignment Science and News, Google DeepMind Blog, Ai2 Blog and
+  METR Research. Do not monitor arXiv as a source.
 - Discover the 50 top-ranked Hacker News stories on each cycle using its official
   API. Classify unseen IDs for AI relevance, ingest relevant links or self-posts,
   and persist seen IDs; use the existing event deduplication before publishing.
@@ -39,7 +41,7 @@ precedence. Persist accepted changes in the corresponding executable files.
 | Database and publication contract | instructions/database-and-telegram.md |
 | Deterministic writing checks | text_rules.py |
 | Model and startup | agent_cycle.py |
-| Source URLs | sources.json |
+| Source URLs | sources.json (RSS/Atom), web-sources.json (web pages) |
 | Local token/channel/database settings | .env; template example.env |
 | News/delivery memory | SQLite at AI_NEWS_DATABASE_PATH |
 | Prepared recurring task | scheduled-task-prompt.txt |

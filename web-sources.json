@@ -1,0 +1,26 @@
+[
+  {
+    "id": "anthropic_research",
+    "url": "https://www.anthropic.com/research"
+  },
+  {
+    "id": "anthropic_alignment",
+    "url": "https://alignment.anthropic.com/"
+  },
+  {
+    "id": "anthropic_news",
+    "url": "https://www.anthropic.com/news"
+  },
+  {
+    "id": "google_deepmind",
+    "url": "https://deepmind.google/blog/"
+  },
+  {
+    "id": "ai2_blog",
+    "url": "https://allenai.org/blog"
+  },
+  {
+    "id": "metr_research",
+    "url": "https://metr.org/research/"
+  }
+]
