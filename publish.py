@@ -8,7 +8,7 @@ import urllib.request
 
 from collect import ROOT, connect
 from process import initialize, lock
-from text_rules import validate_post
+from text_rules import validate_post, remove_source_footer
 from config import database_path, setting
 
 
@@ -89,6 +89,7 @@ def bind_channel(db, chat_id):
 
 def payload_for(db, draft, chat_id, preview=False):
     draft_id, parent_id, body, url, verification = draft
+    body = remove_source_footer(body, url)
     validate_post(body)
     checked = json.loads(verification)
     if checked.get('supported') is not True or checked.get('issues'):

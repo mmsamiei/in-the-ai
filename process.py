@@ -10,7 +10,7 @@ import sqlite3
 from collect import ROOT, connect
 from content import evidence
 from inference import generate
-from text_rules import validate_post
+from text_rules import validate_post, remove_source_footer
 from config import database_path
 
 
@@ -142,6 +142,8 @@ def process_one(db, row, model=generate):
                         reason='Insufficient source text', facts=[], draft='')
     else:
         decision = model(prompt_for(item, source_text, events), DECISION_SCHEMA)
+        if isinstance(decision.get('draft'), str):
+            decision['draft'] = remove_source_footer(decision['draft'], item['url'])
         validate(decision, events)
     verification = None
     if decision['action'] in ('new', 'update'):
