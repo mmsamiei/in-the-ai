@@ -65,6 +65,11 @@ fails, rewrite or hold it. Write understandable, fluent conversational Persian t
 paragraphs. Develop the story with source-supported details and mechanisms,
 connecting ideas so a curious non-specialist can follow the reasoning. Explain
 necessary concepts where they matter; do not mandate examples or basic primers.
+Assume a reader educated to a computer engineering bachelor’s level, not a
+specialist in medicine, statistics, or every subject. Explain unfamiliar domain
+terms accurately in context. Before sending, edit for coherent sentence links,
+complete clauses, and clear referents; replace ambiguous wording with the
+intended meaning only when supported by the source.
 Choose openings and structure to fit each story; avoid formulaic beginnings,
 especially repeated «فرض کنید». Distinguish reported facts, hypothetical
 scenarios and analysis. Use humor or literary devices only when they fit. The first character of EVERY paragraph must be a Persian letter, not an
