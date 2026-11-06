@@ -1,6 +1,9 @@
 """Extract readable source text, keeping feed excerpts distinct from article bodies."""
 from html.parser import HTMLParser
 import re
+import ipaddress
+import socket
+from urllib.parse import urlsplit
 import urllib.request
 
 
@@ -31,12 +34,33 @@ def plain_text(html):
     return re.sub(r'\s+', ' ', ' '.join(parser.parts)).strip()
 
 
+def require_public_url(url):
+    parsed = urlsplit(url)
+    if parsed.scheme not in ('https', 'http') or not parsed.hostname or parsed.username or parsed.password:
+        raise ValueError('Invalid public URL')
+    addresses = socket.getaddrinfo(parsed.hostname, parsed.port or (443 if parsed.scheme == 'https' else 80), type=socket.SOCK_STREAM)
+    if not addresses or any(not ipaddress.ip_address(info[4][0]).is_global for info in addresses):
+        raise ValueError('Non-public URL not allowed')
+
+
+class PublicRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        require_public_url(newurl)
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
 def evidence(item):
     fallback = plain_text(item.get('content', ''))
     result = dict(text=fallback, kind='feed_content', retrieval_error=None)
     try:
         request = urllib.request.Request(item['url'], headers={'User-Agent': 'AINewsMVP/0.1'})
-        with urllib.request.urlopen(request, timeout=25) as response:
+        if item.get('source') == 'hacker_news':
+            require_public_url(item['url'])
+            opener = urllib.request.build_opener(PublicRedirect())
+            response_context = opener.open(request, timeout=25)
+        else:
+            response_context = urllib.request.urlopen(request, timeout=25)
+        with response_context as response:
             if 'html' not in response.headers.get('Content-Type', ''):
                 raise ValueError('Article response is not HTML')
             raw = response.read(4_000_001)

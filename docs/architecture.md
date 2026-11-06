@@ -10,6 +10,7 @@ Changing providers must not bypass application checks.
 | --- | --- |
 | config.py | Literal .env, environment overrides, SQLite path |
 | collect.py, sources.json | RSS/Atom intake, versions, first-fetch baseline |
+| hacker_news.py, collect_hn.py | Official HN top 50, batched AI relevance and seen IDs |
 | content.py | Basic HTML extraction/feed fallback; records truncation/errors |
 | process.py | Prompt assembly, output schemas, event/draft persistence |
 | inference.py, inference.json | Provider-neutral generate(prompt, schema) |
@@ -79,6 +80,12 @@ to inference. Run offline tests and a local sample before publishing with a new 
 Tables separate articles/versions, fetch logs, events, decisions, drafts, errors,
 delivery attempts and channel binding. The opening message was separately tracked
 in announcements. Sending/sent/uncertain/failed/retry states prevent blind retries.
+The hn_seen table records HN item IDs and relevance decisions, independent of
+changing rank/score. Failed item fetches or failed classifications remain retryable.
+On first use current top 50 are evaluated immediately (not an RSS baseline).
+External URLs are ingested as untrusted input; HN destinations and redirects are
+checked against non-public IP addresses before fetching. DNS can change between
+the check and connection, so this is not a complete network isolation boundary.
 
 Context includes the 200 most recently updated events. HTML extraction is basic.
 Factual checking is a separate call to the same model and can miss mistakes.

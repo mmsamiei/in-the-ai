@@ -20,6 +20,7 @@ From the repository root:
 ```sh
 python3 -m unittest -v
 python3 collect.py --pending
+python3 collect_hn.py               # HN discovery in configured database
 python3 cycle.py --limit 5
 python3 publish.py                   # preview, no Telegram network call
 python3 publish.py --check           # permission check, no post

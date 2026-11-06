@@ -11,6 +11,9 @@ precedence. Persist accepted changes in the corresponding executable files.
   @in_the_ai via @ai_khabar_bot. Broad coverage of relatively important events.
 - Sources: Simon Willison LLMs, Google Research, BAIR, TechCrunch AI,
   OpenAI News and Hugging Face Blog (not Daily Papers).
+- Discover the 50 top-ranked Hacker News stories on each cycle using its official
+  API. Classify unseen IDs for AI relevance, ingest relevant links or self-posts,
+  and persist seen IDs; use the existing event deduplication before publishing.
 - Fluent conversational Persian with as many paragraphs as needed for clarity.
   Readability and narrative flow take priority over imitation.
   Natural literary devices/humor, without a mandatory narrative template or
