@@ -10,7 +10,8 @@ precedence. Persist accepted changes in the corresponding executable files.
 - Personal AI news collector with fully automatic public Persian output in
   @in_the_ai via @ai_khabar_bot. Broad coverage of relatively important events.
 - Sources: Simon Willison LLMs, Google Research, BAIR, TechCrunch AI.
-- Three fluent conversational Persian paragraphs. Readability over imitation.
+- Fluent conversational Persian with as many paragraphs as needed for clarity.
+  Readability and narrative flow take priority over imitation.
   Natural literary devices/humor, without a mandatory narrative template or
   fabricated personal experiences.
 - Every paragraph MUST begin with a Persian word for Telegram RTL: no initial

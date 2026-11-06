@@ -14,7 +14,7 @@ Changing providers must not bypass application checks.
 | process.py | Prompt assembly, output schemas, event/draft persistence |
 | inference.py, inference.json | Provider-neutral generate(prompt, schema) |
 | codex_runner.py | Existing isolated Codex subprocess adapter |
-| text_rules.py | Three paragraphs, size, Persian initials |
+| text_rules.py | Nonempty text, size, Persian initials in each paragraph |
 | publish.py | Footer, permission check, replies and delivery state |
 | cycle.py | One complete run; no resident scheduler |
 

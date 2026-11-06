@@ -4,6 +4,12 @@ from text_rules import validate_post
 
 
 class RTLTests(unittest.TestCase):
+    def test_any_nonzero_number_of_persian_paragraphs(self):
+        validate_post('این یک پاراگرافه.')
+        validate_post('\n\n'.join(['این یک پاراگرافه.'] * 5))
+        with self.assertRaises(ValueError):
+            validate_post('  ')
+
     def test_persian_start_with_english_name_after_it(self):
         validate_post('شرکت Airbnb خبر داده.\n\nاین یک نمونه‌ست.\n\nحالا می‌شه بررسیش کرد.')
 
