@@ -68,7 +68,7 @@ running. `systemctl disable --now ai-news.timer` also prevents boot activation.
 
 Do not create parallel native or cron jobs. scheduled-task-prompt.txt is retained
 only for a future migration; disable the system timer before using another
-scheduler. Inference is pinned to gpt-6.1-terra with reasoning_effort=low in
+scheduler. Inference is pinned to gpt-6-luna with reasoning_effort=low in
 inference.json, regardless of the model selected in a desktop chat.
 
 ## Delivery issues

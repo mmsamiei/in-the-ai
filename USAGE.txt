@@ -13,4 +13,4 @@ Commands from the repository root:
 The final command publishes. System scheduling uses ai-news.timer every fifteen
 minutes; verify actual state with systemctl status ai-news.timer. Native task
 prompt text is retained as a migration fallback, not a second active scheduler.
-Inference is pinned to gpt-6.1-terra, Light/low, in inference.json.
+Inference is pinned to gpt-6-luna, Light/low, in inference.json.

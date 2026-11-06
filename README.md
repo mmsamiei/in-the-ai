@@ -41,7 +41,7 @@ python3 cycle.py --publish --limit 5
 زمان‌بندی این سرور با `ai-news.timer` هر پانزده دقیقه تنظیم می‌شود؛ فایل‌های
 سرویس در `deploy/` هستند. وضعیت واقعی با `systemctl status ai-news.timer`
 قابل بررسی است. متن وظیفهٔ بومی فقط برای مهاجرت احتمالی نگه داشته شده.
-مدل در `inference.json` روی `gpt-6.1-terra` با ریزنینگ `low` (Light) ثابت است.
+مدل در `inference.json` روی `gpt-6-luna` با ریزنینگ `low` (Light) ثابت است.
 
 ## راهنمای ادامهٔ کار
 

@@ -1,7 +1,7 @@
 MIGRATION REFERENCE ONLY: the active deployment uses systemd ai-news.timer.
 Do not enable a parallel native schedule. Stop/disable the old scheduler first
 when migrating to this task. Model and effort come from inference.json:
-gpt-6.1-terra, reasoning_effort=low (Light).
+gpt-6-luna, reasoning_effort=low (Light).
 
 From the configured repository working directory, run one AI news cycle:
 python3 cycle.py --publish --limit 5

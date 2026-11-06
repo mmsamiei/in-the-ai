@@ -38,7 +38,7 @@ include that instruction explicitly. Transfer runtime state/credentials separate
 
 ## Switching inference away from Codex
 
-Default inference.json selects `codex`, model `gpt-6.1-terra`, reasoning_effort
+Default inference.json selects `codex`, model `gpt-6-luna`, reasoning_effort
 `low` (Light in the UI), and a 240-second timeout. The adapter forwards explicit
 --model and model_reasoning_effort options while ignoring user config. Both
 drafting and factual checking use this configuration. Per-inference historical

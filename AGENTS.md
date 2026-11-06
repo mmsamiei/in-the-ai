@@ -24,7 +24,7 @@ precedence. Persist accepted changes in the corresponding executable files.
   duplicates do not create new posts. Validate before publication.
 - The user approved systemd scheduling every fifteen minutes. Use ai-news.timer
   and ai-news.service (templates in deploy/). Do not add a second scheduler.
-- Inference is pinned to gpt-6.1-terra with Light/low reasoning in inference.json.
+- Inference is pinned to gpt-6-luna with Light/low reasoning in inference.json.
 
 ## Sources of truth
 

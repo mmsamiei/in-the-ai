@@ -1,5 +1,5 @@
 [Unit]
-Description=AI news collection, Terra drafting and Telegram publication
+Description=AI news collection, Luna drafting and Telegram publication
 Wants=network-online.target
 After=network-online.target
 
