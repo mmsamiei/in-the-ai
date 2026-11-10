@@ -1,7 +1,8 @@
 # Agent handoff
 
 For each scheduled news cycle read instructions/agent-workflow.md,
-instructions/database-and-telegram.md, docs/product.md and writing-prompt.txt.
+instructions/database-and-telegram.md, instructions/deduplication.md,
+docs/product.md and writing-prompt.txt.
 You are the autonomous news operator: use your tools, direct SQLite and direct
 Telegram API access to complete the cycle. Do not run the legacy fixed pipeline.
 This repository is the durable specification; do not
@@ -31,7 +32,10 @@ precedence. Persist accepted changes in the corresponding executable files.
 - Every paragraph MUST begin with a Persian word for Telegram RTL: no initial
   English name, number, emoji or punctuation. Example: «شرکت Airbnb».
 - Keep sources, times and uncertainty. Updates reply to the original event;
-  duplicates do not create new posts. Validate before publication.
+  duplicates do not create new posts. Before EVERY send search the whole SQLite
+  history for normalized URL matches and similar stories and append the evidence
+  to publication_checks as specified in instructions/deduplication.md.
+  No fresh recorded check means no send. Validate before publication.
 - The user approved systemd scheduling every fifteen minutes. Use ai-news.timer
   and ai-news.service (templates in deploy/). Do not add a second scheduler.
 - Inference is pinned to gpt-6-luna with Light/low reasoning in inference.json.

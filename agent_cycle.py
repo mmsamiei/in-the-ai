@@ -36,7 +36,10 @@ def main():
         task = (f'Perform one complete AI news cycle. Mode: {mode}\n'
                 f'The SQLite database is {db}. Read AGENTS.md and instructions/agent-workflow.md.\n'
                 'Use your tools to do the work. Do not modify application code or print secrets. '
-                'Return a short factual run report.')
+                'Before EVERY publication, search SQLite for normalized source URL matches and similar prior stories, '
+                'read instructions/deduplication.md and persist the required publication_checks evidence. '
+                'Do not send without a fresh saved check; duplicates are not new posts. '
+                'Return a short factual run report including publication check IDs.')
         command = ['codex', '--no-daemon', '--search', '-a', 'never', 'exec',
                    '--ignore-user-config', '--ephemeral', '--sandbox', 'workspace-write',
                    '--cd', str(ROOT), '--model', 'gpt-6-luna',

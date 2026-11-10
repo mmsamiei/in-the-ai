@@ -21,6 +21,9 @@ class AgentCycleTests(unittest.TestCase):
                 self.assertNotIn('shell_tool', command)
                 self.assertIn('gpt-6-luna', command)
                 self.assertIn('LIVE', kwargs['input'])
+                self.assertIn('Before EVERY publication', kwargs['input'])
+                self.assertIn('instructions/deduplication.md', kwargs['input'])
+                self.assertIn('publication_checks', kwargs['input'])
                 self.assertNotIn('TELEGRAM_BOT_TOKEN', kwargs['env'])
                 return SimpleNamespace(returncode=0, stdout='test-token', stderr='error test-token')
             with patch.object(agent_cycle, 'ROOT', root), patch.object(agent_cycle, 'database_path', return_value=db), \

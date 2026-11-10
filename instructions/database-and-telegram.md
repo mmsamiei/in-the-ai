@@ -48,6 +48,9 @@ Publication protocol, preserving compatibility with the stable implementation:
    same source URL included once in the message. Do not set
    `disable_web_page_preview` to true. Telegram or the source site can still
    prevent a preview from appearing.
+   Complete the fresh pre-send search and append publication_checks evidence
+   under instructions/deduplication.md; read back the saved check. Preserve its
+   ID in drafts.verification. Only a justified new or update result can proceed.
 3. Commit deliveries state='sending' and an incremented attempt BEFORE network
    sendMessage. This is a write-ahead record, not proof of delivery.
 4. On a successful response, verify response chat ID and message ID, then in one
